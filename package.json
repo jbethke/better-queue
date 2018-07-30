@@ -3,6 +3,7 @@
   "version": "3.8.10",
   "description": "Better Queue for NodeJS",
   "main": "lib/queue.js",
+  "types": "types/queue",
   "directories": {
     "test": "test"
   },
