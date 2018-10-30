@@ -40,17 +40,17 @@ declare class Queue {
 	public push (
 		task : QueueTask,
 		callBack? : Function
-	) => Ticket;
+	) : Ticket;
 
 	/**
 	 * Pauses the queue: tries to pause running tasks and prevents tasks from getting processed until resumed.
 	 */
-	public pause ( ) => void;
+	public pause ( ) : void;
 
 	/**
 	 * Resumes the queue and its runnign tasks.
 	 */
-	public resume ( ) => void;
+	public resume ( ) : void;
 
 	/**
 	 * Destroys the queue: closes the store, tries to clean up.
@@ -58,7 +58,7 @@ declare class Queue {
 	 */
 	public destroy (
 		callBack? : Function
-	) => void;
+	) : void;
 
 	/**
 	 * Sets the queue to read from and write to the given store.
@@ -66,18 +66,18 @@ declare class Queue {
 	 */
 	public use (
 		store : any
-	) => void;
+	) : void;
 
 	/**
 	 * Gets the aggregate stats for the queue.
 	 * @return  an object with properties successRate, peak, total and average, representing the success rate on tasks, peak number of items queued, total number of items processed and average processing time, respectively.
 	 */
-	public getStats ( ) => QueueStats
+	public getStats ( ) : QueueStats
 
 	/**
 	 * average processing time
 	 */
-	public resetStats ( ) => void;
+	public resetStats ( ) : void;
 
 	/**
 	 * Attach an event listener
@@ -88,7 +88,7 @@ declare class Queue {
 	public on (
 		event : QueueEvent,
 		callBack : Function
-	) => Queue;
+	) : Queue;
 }
 
 
@@ -115,7 +115,7 @@ declare type QueuePreconditionFunction = (
 declare type QueueCallBack = (
 	error: any,
 	result: any
-) =>
+) => void;
 
 declare interface QueueOptions {
 
@@ -289,8 +289,4 @@ declare type QueueEvent =
 	 * When a batch of tasks (or worker) updates its progress
 	 */
 	"batch_progress"
-
-
-}
-
-exports Queue;
+;

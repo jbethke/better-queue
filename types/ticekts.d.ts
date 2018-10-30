@@ -13,5 +13,3 @@ declare class Tickets {
 	);
 
 }
-
-exports Tickets;

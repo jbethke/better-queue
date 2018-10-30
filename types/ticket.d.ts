@@ -100,5 +100,3 @@ declare interface TicketProgressEventResponse {
 	eta: string;
 	message: string;
 }
-
-exports Ticket;
